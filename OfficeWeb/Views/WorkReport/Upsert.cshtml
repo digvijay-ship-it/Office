@@ -1,0 +1,45 @@
+﻿@model Office.Models.ViewModels.WorkReportVM
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+	<input asp-for="WR.Id" hidden/>
+	<div class="row">
+		<div class="col-12">
+			<div class="border">
+				<div class="row">
+					<h2 class="text-primary" > @(Model.WR.Id != 0 ? "Update" : "Create") Employee</h2>
+					<hr />
+				</div>
+				<div>
+					<label asp-for="WR.ReportType"></label>
+					<input asp-for="WR.ReportType" />
+					<span asp-validation-for="WR.ReportType" class="text-danger"></span>
+				</div>
+				<div>
+					<label asp-for="WR.ReportDesc"></label>
+					<input asp-for="WR.ReportDesc" />
+					<span asp-validation-for="WR.ReportDesc" class="text-danger"></span>
+				</div>
+				
+				<div>
+					<label asp-for="WR.EmpId"></label>
+					<select asp-for="WR.EmpId" asp-items="@Model.EmpList">
+						<option disabled selected>--Select Category--</option>
+						</select>
+					<span asp-validation-for="WR.EmpId" class="text-danger"></span>
+				</div>
+				
+				<div>
+					@if(Model.WR.Id!=0)
+					{
+						<button type="submit" class="btn btn-primary">Update</button>
+					}
+					else
+					{
+						<button type="submit"  class="btn btn-primary">Create</button>
+					}
+					<a asp-controller="WorkReport" asp-action="Index" class="btn btn-secondary">Back to List</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

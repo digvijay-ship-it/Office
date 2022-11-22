@@ -1,0 +1,16 @@
+﻿@model DepartmentRole
+
+<form method="post">
+	<div class="border">
+		<div class="row pd-2">
+			<h2>Edit DepartmentRole</h2>
+		</div>
+		<div>
+			<label asp-for="Name"></label>
+			<input asp-for = "Name" />
+			<span asp-validation-for="Name"></span>
+		</div>
+		<button type="submit" style="width:150px">Update</button>
+		<a asp-controller="DepartmentRole" asp-action="Index">Back To List</a>
+	</div>
+</form>

@@ -1,0 +1,111 @@
+﻿@model Office.Models.ViewModels.EmployeeVM
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+	<input asp-for="Employee.Id" hidden/>
+	<input asp-for="Employee.ImgUrl" hidden/>
+	<div class="row">
+		<div class="col-10">
+			<div class="border">
+				<div class="row">
+					<h2 class="text-primary" > @(Model.Employee.Id != 0 ? "Update" : "Create") Employee</h2>
+					<hr />
+				</div>
+				<div>
+					<label asp-for="Employee.Name"></label>
+					<input asp-for="Employee.Name" />
+					<span asp-validation-for="Employee.Name" class="text-danger"></span>
+				</div>
+				<div>
+					<label asp-for="Employee.ImgUrl"></label>
+					<input type="file" class="form-control" name ="file" id="uploadBox"/>
+				</div>
+				<div>
+					<label asp-for="Employee.Email"></label>
+					<input asp-for="Employee.Email" />
+					<span asp-validation-for="Employee.Email" class="text-danger"></span>
+				</div>
+				<div>
+					<label asp-for="Employee.User"></label>
+					<input asp-for="Employee.User" />
+					<span asp-validation-for="Employee.User" class="text-danger"></span>
+				</div>
+				<div>
+					<label asp-for="Employee.Password"></label>
+					<input asp-for="Employee.Password" />
+					<span asp-validation-for="Employee.Password" class="text-danger"></span>
+				</div>
+				<div>
+					<label asp-for="Employee.DepartmentRoleId"></label>
+					<select asp-for="Employee.DepartmentRoleId" asp-items="@Model.DepartmentList">
+						<option disabled selected>--Select Category--</option>
+						</select>
+					<span asp-validation-for="Employee.DepartmentRoleId" class="text-danger"></span>
+				</div>
+				<div>
+					<label asp-for="Employee.StreetAddress"></label>
+					<input asp-for="Employee.StreetAddress" />
+					<span asp-validation-for="Employee.StreetAddress" class="text-danger"></span>
+				</div>
+				<div>
+					<label asp-for="Employee.ZipCode"></label>
+					<input asp-for="Employee.ZipCode" />
+					<span asp-validation-for="Employee.ZipCode" class="text-danger"></span>
+				</div>
+				<div>
+					<label asp-for="Employee.City"></label>
+					<input asp-for="Employee.City" />
+					<span asp-validation-for="Employee.City" class="text-danger"></span>
+				</div>
+				<div>
+					<label asp-for="Employee.state"></label>
+					<input asp-for="Employee.state" />
+					<span asp-validation-for="Employee.state" class="text-danger"></span>
+				</div>
+				<div>
+					<label asp-for="Employee.MobileNum"></label>
+					<input asp-for="Employee.MobileNum" />
+					<span asp-validation-for="Employee.MobileNum" class="text-danger"></span>
+				</div>
+				<div>
+					<label asp-for="Employee.Salary"></label>
+					<input asp-for="Employee.Salary" />
+					<span asp-validation-for="Employee.Salary" class="text-danger"></span>
+				</div>
+				<div>
+					@if(Model.Employee.Id!=0)
+					{
+						<button type="submit" class="btn btn-primary">Update</button>
+					}
+					else
+					{
+						<button type="submit" onclick="return ValidateInput()" class="btn btn-primary">Create</button>
+					}
+					<a asp-controller="Emp" asp-action="Index" class="btn btn-secondary">Back to List</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-2 pt-4">
+			<img src="@Model.Employee.ImgUrl"
+				 width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+		</div>
+	</div>
+
+	
+
+</form>
+
+@section Scripts{
+	<script>
+		function ValidateInput(){
+			if(document.getElementById("uploadBox").value==""){
+				Swal.fire({
+				  icon: 'error',
+				  title: 'Oops...',
+				  text: 'Please upload image!',
+				});
+				return false;
+			}
+			return true;
+		}
+	</script>
+}
