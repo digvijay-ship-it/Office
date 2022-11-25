@@ -1,0 +1,57 @@
+﻿@model IEnumerable<UserRole>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">User Roles List</h2>
+        </div>
+        <div class="col-6">
+            <a asp-controller="UserRole" asp-action="Create" class="btn btn-primary">Add New User</a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Manager Name
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+
+            </td>
+        </tr>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td width="35%">
+                    @obj.Id
+                </td>
+                <td width="35%">
+                    @obj.UserRoleType
+                </td>
+                <td>
+                    <div>
+                        <a asp-controller="UserRole" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
+                        <a asp-controller="UserRole" asp-action="Delete" asp-route-id = "@obj.Id">Delete</a>
+                    </div>
+                </td>
+                
+            </tr>
+
+        }
+    </tbody>
+</table> 

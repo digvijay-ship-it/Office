@@ -5,14 +5,14 @@
 	<input asp-for="Employee.ImgUrl" hidden/>
 	<div class="row">
 		<div class="col-10">
-			<div class="border">
-				<div class="row">
+			<div class="border p-3 mt-4 row">
+				<div class="row pb-2">
 					<h2 class="text-primary" > @(Model.Employee.Id != 0 ? "Update" : "Create") Employee</h2>
 					<hr />
 				</div>
 				<div>
 					<label asp-for="Employee.Name"></label>
-					<input asp-for="Employee.Name" />
+					<input asp-for="Employee.Name" class="form-control" />
 					<span asp-validation-for="Employee.Name" class="text-danger"></span>
 				</div>
 				<div>
@@ -21,54 +21,61 @@
 				</div>
 				<div>
 					<label asp-for="Employee.Email"></label>
-					<input asp-for="Employee.Email" />
+					<input asp-for="Employee.Email" class="form-control"/>
 					<span asp-validation-for="Employee.Email" class="text-danger"></span>
 				</div>
 				<div>
 					<label asp-for="Employee.User"></label>
-					<input asp-for="Employee.User" />
+					<input asp-for="Employee.User" class="form-control" />
 					<span asp-validation-for="Employee.User" class="text-danger"></span>
 				</div>
 				<div>
 					<label asp-for="Employee.Password"></label>
-					<input asp-for="Employee.Password" />
+					<input asp-for="Employee.Password" class="form-control"/>
 					<span asp-validation-for="Employee.Password" class="text-danger"></span>
 				</div>
 				<div>
 					<label asp-for="Employee.DepartmentRoleId"></label>
-					<select asp-for="Employee.DepartmentRoleId" asp-items="@Model.DepartmentList">
+					<select asp-for="Employee.DepartmentRoleId" asp-items="@Model.DepartmentList" class="form-select">
 						<option disabled selected>--Select Category--</option>
 						</select>
 					<span asp-validation-for="Employee.DepartmentRoleId" class="text-danger"></span>
 				</div>
 				<div>
+					<label asp-for="Employee.UserRoleId"></label>
+					<select asp-for="Employee.UserRoleId" asp-items="@Model.UserRoles" class="form-select">
+						<option disabled selected>--Select Category--</option>
+						</select>
+					<span asp-validation-for="Employee.UserRoleId" class="text-danger"></span>
+				</div>
+				<div>
 					<label asp-for="Employee.StreetAddress"></label>
-					<input asp-for="Employee.StreetAddress" />
+					<input asp-for="Employee.StreetAddress" class="form-control" />
 					<span asp-validation-for="Employee.StreetAddress" class="text-danger"></span>
 				</div>
 				<div>
 					<label asp-for="Employee.ZipCode"></label>
-					<input asp-for="Employee.ZipCode" />
+					<input asp-for="Employee.ZipCode" class="form-control"/>
 					<span asp-validation-for="Employee.ZipCode" class="text-danger"></span>
 				</div>
 				<div>
 					<label asp-for="Employee.City"></label>
-					<input asp-for="Employee.City" />
+					<input asp-for="Employee.City" class="form-control"/>
 					<span asp-validation-for="Employee.City" class="text-danger"></span>
 				</div>
 				<div>
 					<label asp-for="Employee.state"></label>
-					<input asp-for="Employee.state" />
+					<input asp-for="Employee.state" class="form-control"/>
 					<span asp-validation-for="Employee.state" class="text-danger"></span>
 				</div>
 				<div>
 					<label asp-for="Employee.MobileNum"></label>
-					<input asp-for="Employee.MobileNum" />
+					<input asp-for="Employee.MobileNum" class="form-control"/>
 					<span asp-validation-for="Employee.MobileNum" class="text-danger"></span>
 				</div>
 				<div>
 					<label asp-for="Employee.Salary"></label>
-					<input asp-for="Employee.Salary" />
+					<input asp-for="Employee.Salary" class="form-control"/>
 					<span asp-validation-for="Employee.Salary" class="text-danger"></span>
 				</div>
 				<div>
@@ -85,8 +92,8 @@
 			</div>
 		</div>
 		<div class="col-2 pt-4">
-			<img src="@Model.Employee.ImgUrl"
-				 width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+			<img src="@Model.Employee.ImgUrl" 
+			width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
 		</div>
 	</div>
 

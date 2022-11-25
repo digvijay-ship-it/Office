@@ -18,11 +18,13 @@ namespace Office.DataAccess.Repository
             _DepartmentRoleRepository = new DepartmentRoleRepository(_db);
             _EmpRepository = new EmpRepository(_db);
             workReportRepository = new WorkReportRepository(_db);
+            userRoleRepository = new UserRoleRepository(_db);
         }
 
         public IDepartmentRoleRepository _DepartmentRoleRepository { get; private set; }
         public IEmpRepository _EmpRepository { get; private set; }
         public IWorkReportRepository workReportRepository { get; private set; }
+        public IUserRoleRepository userRoleRepository { get; private set; }
 
         public void Save()
         {

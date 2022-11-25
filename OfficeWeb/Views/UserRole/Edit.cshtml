@@ -1,0 +1,16 @@
+﻿@model UserRole
+
+<form method="post">
+	<div class="border">
+		<div class="row pd-2">
+			<h2>Edit User Role</h2>
+		</div>
+		<div>
+			<label asp-for="UserRoleType"></label>
+			<input asp-for="UserRoleType" />
+			<span asp-validation-for="UserRoleType"></span>
+		</div>
+		<button type="submit" style="width:150px">Update</button>
+		<a asp-controller="DepartmentRole" asp-action="Index">Back To List</a>
+	</div>
+</form>

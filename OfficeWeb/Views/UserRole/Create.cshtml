@@ -1,0 +1,15 @@
+﻿@model UserRole
+<form method="post">
+	<div class="border p-3 mt-4">
+		<div class="row">
+			<h2 class="text-primary">Create User Role</h2>
+		</div>
+		<div class="mb-3">
+			<label asp-for="UserRoleType">Role Type</label>
+			<input asp-for="UserRoleType" />
+			<span asp-validation-for="UserRoleType" class="text-danger"></span>
+		</div>
+	</div>
+	<button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+	<a asp-controller="UserRole" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to List</a>
+</form>

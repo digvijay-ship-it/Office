@@ -27,6 +27,12 @@ namespace Office.Models
         public DepartmentRole DepartmentRole { get; set; }
 
         [Required]
+        [Display(Name = "User Role")]
+        public int UserRoleId{ get; set; }
+        [ValidateNever]
+        public UserRole UserRole { get; set; }
+
+        [Required]
         public string StreetAddress { get; set; }
         [Required]
         public string ZipCode { get; set; }

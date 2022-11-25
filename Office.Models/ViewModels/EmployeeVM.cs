@@ -13,5 +13,7 @@ namespace Office.Models.ViewModels
 		public Emp Employee { get; set; }
         [ValidateNever]
         public IEnumerable<SelectListItem> DepartmentList { get; set; }
+        [ValidateNever]
+        public IEnumerable<SelectListItem> UserRoles{ get; set; }
 	}
 }

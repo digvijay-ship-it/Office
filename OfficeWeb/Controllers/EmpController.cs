@@ -38,6 +38,11 @@ public class EmpController : Controller
             {
                 Text = i.Name,
                 Value = i.Id.ToString()
+            }),
+            UserRoles = _unitOfWork.userRoleRepository.GetAll().Select(i => new SelectListItem
+            {
+                Text = i.UserRoleType,
+                Value = i.Id.ToString()
             })
         };
 
@@ -110,8 +115,8 @@ public class EmpController : Controller
     [HttpGet]
     public IActionResult GetAll()
     {
-        var productList = _unitOfWork._EmpRepository.GetAll(includeProperties: "DepartmentRole");
-        return Json(new { data = productList });
+        var EmpPropList = _unitOfWork._EmpRepository.GetAll(includeProperties: "DepartmentRole,UserRole");
+        return Json(new { data = EmpPropList});
     }
 
     //POST
@@ -119,7 +124,7 @@ public class EmpController : Controller
     public IActionResult Delete(int? id)
     {
         var obj = _unitOfWork._EmpRepository.GetFirstOrDefault(u => u.Id == id);
-        if (obj == null)
+        if (obj == null) 
         {
             return Json(new { success = false, message = "Error while deleting" });
         }

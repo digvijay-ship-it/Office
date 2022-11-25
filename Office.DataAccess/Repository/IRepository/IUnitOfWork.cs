@@ -11,6 +11,7 @@ namespace Office.DataAccess.Repository.IRepository
         IDepartmentRoleRepository _DepartmentRoleRepository { get; }
         IEmpRepository _EmpRepository { get; }
         IWorkReportRepository workReportRepository { get; }
+        IUserRoleRepository userRoleRepository { get; }
         void Save();
     }
 }

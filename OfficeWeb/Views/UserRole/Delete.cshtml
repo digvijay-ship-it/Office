@@ -1,0 +1,19 @@
+﻿@model UserRole
+
+<h1>Delete</h1>
+<form method="post">
+	<div>
+		<div>
+			<h2>Edit DepartmentRole</h2>
+		</div>
+		<div>
+			<label asp-for="UserRoleType"></label>
+			<input asp-for="UserRoleType" disabled />
+		</div>
+		<div>
+			<button type="submit" style="width:150px">Delete</button>
+			<a asp-controller="UserRole" asp-action="Index">back to list</a>
+		</div>
+	</div>
+</form>
+

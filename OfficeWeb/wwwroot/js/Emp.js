@@ -11,7 +11,7 @@ function loadDataTable() {
             { "data": "name", "width": "15%" },
             { "data": "email", "width": "15%" },
             { "data": "departmentRole.name", "width": "15%" },
-            { "data": "city", "width": "15%" },
+            { "data": "userRole.userRoleType", "width": "15%" },
             {
                 "data": "id",
                 "render": function (data) {
@@ -50,7 +50,7 @@ function Delete(url) {
                         toastr.success(data.message);
                     }
                     else {
-                        toastr.success(data.message)
+                        toastr.success(data.message);
                     }
                 }
             })

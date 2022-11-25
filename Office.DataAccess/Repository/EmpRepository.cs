@@ -28,6 +28,8 @@ namespace Office.DataAccess.Repository
                 objFromDb.City = obj.City;
                 objFromDb.state = obj.state;
                 objFromDb.MobileNum = obj.MobileNum;
+                objFromDb.UserRoleId = obj.UserRoleId;
+                objFromDb.DepartmentRoleId = obj.DepartmentRoleId;
                 if (obj.ImgUrl is not null)
                 {
                     objFromDb.ImgUrl = obj.ImgUrl;
